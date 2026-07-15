@@ -1,0 +1,43 @@
+{
+  "name": "llm-stream-util",
+  "version": "1.0.0",
+  "description": "Tiny helpers to stream LLM responses from OpenAI, Anthropic, and OpenAI-compatible APIs.",
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test tests/stream.test.js",
+    "prepublishOnly": "npm test"
+  },
+  "keywords": [
+    "llm",
+    "openai",
+    "anthropic",
+    "streaming",
+    "sse",
+    "ai",
+    "chatgpt",
+    "claude",
+    "fetch"
+  ],
+  "author": "anilachary",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theinfyark/llm-stream-util.git"
+  },
+  "bugs": {
+    "url": "https://github.com/theinfyark/llm-stream-util/issues"
+  },
+  "homepage": "https://github.com/theinfyark/llm-stream-util#readme",
+  "engines": {
+    "node": ">=18"
+  }
+}

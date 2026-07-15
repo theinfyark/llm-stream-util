@@ -1,16 +1,22 @@
 {
   "name": "llm-stream-util",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Tiny helpers to stream LLM responses from OpenAI, Anthropic, and OpenAI-compatible APIs.",
   "type": "module",
   "main": "./src/index.js",
   "exports": {
-    ".": "./src/index.js"
+    ".": {
+      "types": "./types/index.d.ts",
+      "import": "./src/index.js",
+      "default": "./src/index.js"
+    }
   },
   "files": [
     "src",
+    "types",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "CHANGELOG.md"
   ],
   "scripts": {
     "test": "node --test tests/stream.test.js",
@@ -39,5 +45,11 @@
   "homepage": "https://github.com/theinfyark/llm-stream-util#readme",
   "engines": {
     "node": ">=18"
+  },
+  "types": "./types/index.d.ts",
+  "sideEffects": false,
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/anilachary"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "llm-stream-util",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Tiny helpers to stream LLM responses from OpenAI, Anthropic, and OpenAI-compatible APIs.",
   "type": "module",
   "main": "./src/index.js",
@@ -32,7 +32,14 @@
     "ai",
     "chatgpt",
     "claude",
-    "fetch"
+    "fetch",
+    "server-sent-events",
+    "stream",
+    "gpt",
+    "text-streaming",
+    "openai-streaming",
+    "token-stream",
+    "nodejs"
   ],
   "author": "anilachary",
   "license": "MIT",

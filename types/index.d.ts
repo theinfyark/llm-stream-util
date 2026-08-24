@@ -51,6 +51,8 @@ export interface AnthropicStreamOptions extends BaseStreamOptions {
 export interface CompatibleStreamOptions extends BaseStreamOptions {
   provider: "openai-compatible";
   baseUrl: string;
+  /** Allow empty API key (e.g. local Ollama). Default: false. */
+  allowMissingKey?: boolean;
 }
 
 export type StreamOptions =

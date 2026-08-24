@@ -6,6 +6,16 @@ Tiny zero-dependency helpers to **stream LLM responses** from OpenAI, Anthropic,
 npm install llm-stream-util
 ```
 
+## Features
+
+- Stream tokens from OpenAI, Anthropic, and OpenAI-compatible APIs
+- `collect()` to wait for the full reply
+- SSE parsing with no extra dependencies
+- OpenAI-compatible providers require an API key unless `allowMissingKey: true`
+- Dual ESM + CommonJS entry points
+
+> For multi-provider TypeScript streaming, see [`streamflow-ai`](https://www.npmjs.com/package/streamflow-ai).
+
 ## Quick start
 
 ```js

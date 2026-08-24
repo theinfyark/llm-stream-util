@@ -113,6 +113,7 @@ describe('stream / collect (openai)', () => {
       provider: 'openai-compatible',
       baseUrl: 'https://example.com/v1',
       model: 'local',
+      apiKey: 'test-key',
       messages: [{ role: 'user', content: 'hi' }],
       fetch,
     });
@@ -158,6 +159,26 @@ describe('stream / collect (openai)', () => {
           }),
         (err) =>
           err instanceof LLMStreamError && /OPENAI_API_KEY/.test(err.message),
+      );
+    } finally {
+      if (prev !== undefined) process.env.OPENAI_API_KEY = prev;
+    }
+  });
+
+  it('requires an API key for openai-compatible unless allowMissingKey', async () => {
+    const prev = process.env.OPENAI_API_KEY;
+    delete process.env.OPENAI_API_KEY;
+    try {
+      await assert.rejects(
+        () =>
+          collect({
+            provider: 'openai-compatible',
+            baseUrl: 'https://example.com/v1',
+            model: 'local',
+            messages: [{ role: 'user', content: 'hi' }],
+            fetch: async () => new Response(''),
+          }),
+        (err) => err instanceof LLMStreamError && /API key/.test(err.message),
       );
     } finally {
       if (prev !== undefined) process.env.OPENAI_API_KEY = prev;

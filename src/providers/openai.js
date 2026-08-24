@@ -39,9 +39,15 @@ export async function* streamOpenAILike(options) {
   }
 
   const apiKey = resolveApiKey(options);
-  if (!apiKey && options.provider === 'openai') {
+  if (
+    !apiKey &&
+    (options.provider === 'openai' || options.provider === 'openai-compatible') &&
+    options.allowMissingKey !== true
+  ) {
     throw new LLMStreamError(
-      'Missing OpenAI API key. Pass apiKey or set OPENAI_API_KEY.',
+      options.provider === 'openai'
+        ? 'Missing OpenAI API key. Pass apiKey or set OPENAI_API_KEY.'
+        : 'Missing API key for openai-compatible provider. Pass apiKey or set OPENAI_API_KEY (or allowMissingKey: true for unauthenticated local servers).',
     );
   }
 

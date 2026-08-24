@@ -62,7 +62,8 @@
 /**
  * @typedef {BaseStreamOptions & {
  *   provider: 'openai-compatible',
- *   baseUrl: string
+ *   baseUrl: string,
+ *   allowMissingKey?: boolean
  * }} CompatibleStreamOptions
  */
 
